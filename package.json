@@ -1,0 +1,29 @@
+{
+  "name": "denon-avr-x1300w-controller",
+  "version": "1.0.0",
+  "description": "denen avr x1300w desctop controller",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ./src",
+    "build-macOS": "electron-packager ./src Denon-AVR-X1300W-Controller --platform=darwin --arch=x64 --overwrite --icon=./images/denon.icns",
+    "build-windows": "electron-packager ./src Denon-AVR-X1300W-Controller --platform=win32 --arch=x64 --overwrite",
+    "tsc": "tsc",
+    "build": "webpack"
+  },
+  "author": "takashi kominami",
+  "license": "ISC",
+  "dependencies": {
+    "@types/request-promise-native": "^1.0.17",
+    "electron": "^7.1.2",
+    "electron-packager": "^14.1.1",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.8",
+    "typescript": "^3.7.2"
+  },
+  "private": true,
+  "devDependencies": {
+    "ts-loader": "^6.2.1",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  }
+}
