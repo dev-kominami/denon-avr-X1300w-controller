@@ -6,7 +6,7 @@ let mainWindow;
 function createWindow() {
   mainWindow = new BrowserWindow({
     webPreferences: {
-      nodeIntegration: false,
+      nodeIntegration: true,
     },
     width: 250,
     hight: 600,
@@ -16,7 +16,7 @@ function createWindow() {
   mainWindow.loadFile('index.html');
 
   // developer tool load
-  // mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 
   // main window close action
   mainWindow.on('closed', () => {

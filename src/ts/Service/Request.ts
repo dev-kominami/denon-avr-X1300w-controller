@@ -1,38 +1,33 @@
 import request = require('request-promise-native');
 
 export class Request {
+  options: request.Options;
   readonly url: string = '';
   form: object; 
-  method: string;
-  options: object;
   constructor() {
     this.form = {};
-    this.method = 'POST';
     this.options = {
       uri: this.url,
-      method: this.method,
       form: this.form,
+      method: 'POST',
     };
   }
 
   public execute() {
-    let options: request.Options = {
-      uri: this.url,
-      method: this.method,
-      form: this.form
-    };
-    request(options)
+    request(this.options)
       .then(function (body) {
-        if(body) {
-        }
       })
       .catch(function (error) {
         console.log('error',error);
       });
   }
 
-  public param(form: object) {
-    this.form = form;
+  set param(form: object) {
+    Object.assign(this.options, {form: form});
+  }
+
+  get param() :object {
+    return this.options;
   }
 
 }
